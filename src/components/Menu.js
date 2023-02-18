@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../assets/css/Menu.css";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const Menu = () => {
       <button
         className="first-menu"
         onClick={() => {
-          navigate("/");
+          navigate("/characters");
         }}
       >
         <div className="characters-select">CHARACTERS</div>

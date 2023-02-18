@@ -1,3 +1,43 @@
+.research-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  background-color: #393939;
+  border: 2px solid #ed171e;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.magnifying-glass {
+  color: #ed171e;
+  margin: 0 10px 0 10px;
+}
+
+.research-bar {
+  background-color: inherit;
+  border: none;
+  border-radius: 15px;
+  height: 90%;
+  width: 98%;
+  margin: 0 auto;
+}
+
+.research-bar::placeholder {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 16px;
+  color: #ed171ecd;
+  font-weight: bold;
+}
+
+.research-bar:focus {
+  outline: none;
+  background-color: none;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+
 .characters-images-block {
   display: flex;
   flex-wrap: wrap;

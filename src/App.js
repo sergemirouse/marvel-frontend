@@ -5,6 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
+import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
 import CharacterComics from "./pages/Character_Comics";
@@ -18,7 +19,8 @@ function App() {
       <Header />
       <Menu />
       <Routes>
-        <Route path="/" element={<Characters />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/characters" element={<Characters />} />
         <Route path="/comics/:characterId" element={<CharacterComics />} />
         <Route path="/comics" element={<Comics />} />
       </Routes>
