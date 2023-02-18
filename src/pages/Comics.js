@@ -36,7 +36,7 @@ const Comics = () => {
               alt="comic"
               className="comics-images"
             />
-            <div>{comic.description}</div>
+            <div className="comics-description">{comic.description}</div>
           </article>
         );
       })}

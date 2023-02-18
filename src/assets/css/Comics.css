@@ -10,13 +10,17 @@
 .comics-images-block h2 {
   background-image: linear-gradient(185deg, #daa520, #f6cb60, #daa520);
   color: #151515;
+  min-height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .comics-images-section {
   max-width: 30%;
   gap: 20px;
   border-radius: 5px;
-  background-color: #151515;
+  /* background-color: #151515; */
   margin-top: 100px;
   min-width: 382px;
 }
@@ -25,30 +29,41 @@
   max-height: 300px;
   min-width: 100%;
   object-fit: cover;
-  border-bottom: 5px solid #ed171e;
+  /* border-bottom: 5px solid #ed171e; */
   object-fit: contain;
 }
 
 .comics-images:hover {
   animation-name: rotate;
   animation-duration: 0.7s;
-  animation-delay: 2s;
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  border-collapse: collapse;
+  z-index: 1;
+  position: relative;
 }
 
 @keyframes rotate {
   0% {
     transform: rotate(0);
   }
-  33% {
-    transform: rotate(10deg);
-  }
-  66% {
-    transform: rotate(-10deg);
-  }
   100% {
-    transform: rotate(0);
+    transform: rotate(1440deg) scale(2);
   }
+}
+
+.comics-description {
+  background-color: #fff;
+  border-left: 4px solid #ed171e;
+  padding: 10px 10px;
+  overflow: hidden;
+  position: relative;
+  transition: 2s;
+}
+
+.comics-description:hover {
+  box-shadow: inset 382px 0 #ed171e;
+  transition: 1.5s;
+  color: #fff;
 }

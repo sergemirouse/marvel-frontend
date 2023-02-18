@@ -1,0 +1,23 @@
+.footer-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  margin-top: 60px;
+}
+
+.footer {
+  height: 100%;
+  width: 100%;
+  margin-top: 55px;
+  word-spacing: 1px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  bottom: 0;
+}
+
+a {
+  text-decoration: inherit;
+  color: #ed171e;
+  font-weight: bolder;
+}

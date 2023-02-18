@@ -8,6 +8,7 @@ import Menu from "./components/Menu";
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
 import CharacterComics from "./pages/Character_Comics";
+import Footer from "./components/Footer";
 
 library.add(faMagnifyingGlass);
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/comics/:characterId" element={<CharacterComics />} />
         <Route path="/comics" element={<Comics />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
