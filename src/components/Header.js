@@ -1,4 +1,4 @@
-import logo from "../img/MarvelLogo.png";
+import logo from "../assets/img/MarvelLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {

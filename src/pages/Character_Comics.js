@@ -48,7 +48,7 @@ const CharacterComics = () => {
                 "." +
                 detail.thumbnail.extension
               }
-              alt=""
+              alt="character-comic"
             />
           </div>
         );

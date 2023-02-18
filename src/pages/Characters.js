@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "../assets/css/Character.css";
 
 const Characters = () => {
   const [data, setData] = useState();
