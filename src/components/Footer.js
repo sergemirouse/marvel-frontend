@@ -4,13 +4,14 @@ const Footer = () => {
   return (
     <section className="footer-section">
       <div className="footer">
-        <span>Made with </span>
+        <span>Made with </span> &nbsp;
         <span className="react">React </span>
-        <span>at </span>
+        <span>at </span> &nbsp;
         <a href="https://www.lereacteur.io/" target="blank">
           Le Reacteur
         </a>
-        <span> by </span>
+        &nbsp;
+        <span> by </span> &nbsp;
         <a href="https://github.com/sergemirouse" target="blank">
           Serge Mirouse
         </a>

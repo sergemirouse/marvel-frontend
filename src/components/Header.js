@@ -2,7 +2,7 @@ import logo from "../assets/img/MarvelLogo.png";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/Header.css";
 
-const Header = () => {
+const Header = ({ token, handleToken }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -20,12 +20,37 @@ const Header = () => {
                   }}
                 />
               </div>
-
-              <div className="signup-login-container">
-                <button className="signup">SIGN UP</button>
-                <span style={{ color: "#fff" }}>|</span>
-                <button className="login">LOGIN</button>
-              </div>
+              {token ? (
+                <button
+                  className="logout"
+                  onClick={() => {
+                    // Cookies.remove("token-vinted");
+                    handleToken(null);
+                  }}
+                >
+                  LOGOUT
+                </button>
+              ) : (
+                <div className="signup-login-container">
+                  <button
+                    className="signup"
+                    onClick={() => {
+                      navigate("/user/signup");
+                    }}
+                  >
+                    SIGN UP
+                  </button>
+                  <span style={{ color: "#fff" }}>|</span>
+                  <button
+                    className="login"
+                    onClick={() => {
+                      navigate("/user/login");
+                    }}
+                  >
+                    LOGIN
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

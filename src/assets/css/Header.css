@@ -37,7 +37,8 @@ header {
 }
 
 .signup,
-.login {
+.login,
+.logout {
   color: #fff;
   background-color: inherit;
   border: inherit;

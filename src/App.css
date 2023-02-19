@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
 body {
   font-family: "Roboto Condensed", sans-serif;
   width: 100vw;
+  height: 100vh;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 h2 {
@@ -14,6 +21,13 @@ h2 {
   font-size: 30px;
 }
 
+button {
+  border: inherit;
+  background-color: inherit;
+  font-size: inherit;
+}
+
 .home-bcg {
+  height: 500px;
   image-rendering: optimizeQuality;
 }

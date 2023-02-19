@@ -16,24 +16,23 @@ const fadeImages = [
 
 const Home = () => {
   return (
-    <div className="slide-container">
-      <Fade>
-        {fadeImages.map((fadeImage, index) => (
-          <div key={index}>
-            <img
-              style={{
-                width: "100%",
-                maxHeight: "100vh",
-                objectFit: "cover",
-              }}
-              src={fadeImage.url}
-              alt="home"
-              className="home-bcg"
-            />
-          </div>
-        ))}
-      </Fade>
-    </div>
+    <Fade className="slide-container">
+      {fadeImages.map((fadeImage, index) => (
+        <div key={index}>
+          <img
+            style={{
+              width: "100%",
+              maxHeight: "100vh",
+              objectFit: "cover",
+              borderBottom: "3px solid #daa520",
+            }}
+            src={fadeImage.url}
+            alt="home"
+            className="home-bcg"
+          />
+        </div>
+      ))}
+    </Fade>
   );
 };
 

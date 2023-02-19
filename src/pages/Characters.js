@@ -8,6 +8,7 @@ const Characters = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState("");
+  const [skip, setSkip] = useState("");
 
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-backend--9v668jgjwvk4.code.run/charactersapiKey=&name=${name}`
+          `https://site--marvel-backend--9v668jgjwvk4.code.run/characters?apiKey&name=${name}&skip=${skip}`
         );
         // console.log(response.data);
         setData(response.data);
@@ -25,26 +26,39 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, [name]);
+  }, [name, skip]);
 
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
     <div>
-      {" "}
-      <div className="research-container">
-        <FontAwesomeIcon
-          className="magnifying-glass"
-          icon={"magnifying-glass"}
-        />
+      <div className="characters-research-section">
+        <div className="characters-research-container">
+          <FontAwesomeIcon
+            className="characters-magnifying-glass"
+            icon={"magnifying-glass"}
+          />
+          <input
+            value={name}
+            type="text"
+            placeholder="Recherecher"
+            className="characters-research-bar"
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
+      </div>
+      <div className="skip-container">
+        <p>Page :</p>
         <input
-          value={name}
-          type="text"
-          placeholder="Recherecher"
-          className="research-bar"
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
+          className="skip-input"
+          type="number"
+          min="1"
+          max="15"
+          value={skip}
+          placeholder="Page"
+          onChange={(event) => setSkip(event.target.value)}
         />
       </div>
       <div className="characters-images-block">
@@ -77,6 +91,18 @@ const Characters = () => {
             </article>
           );
         })}
+      </div>
+      <div className="skip-container">
+        <p>Page :</p>
+        <input
+          className="skip-input"
+          type="number"
+          min="1"
+          max="15"
+          value={skip}
+          placeholder="Page"
+          onChange={(event) => setSkip(event.target.value)}
+        />
       </div>
     </div>
   );

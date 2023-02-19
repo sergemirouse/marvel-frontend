@@ -1,21 +1,31 @@
-.research-container {
+/* ---------- */
+/* RESEARCH BAR */
+/* ---------- */
+.characters-research-section {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
+}
+
+.characters-research-container {
+  display: flex;
+  /* justify-content: center; */
   align-items: center;
   width: 45%;
-  background-color: #393939;
+  background-color: #fff;
   border: 2px solid #ed171e;
   height: 50px;
   border-radius: 15px;
 }
 
-.magnifying-glass {
+.characters-magnifying-glass {
   color: #ed171e;
   margin: 0 10px 0 10px;
 }
 
-.research-bar {
+.characters-research-bar {
   background-color: inherit;
+  font-size: 16px;
   border: none;
   border-radius: 15px;
   height: 90%;
@@ -23,25 +33,49 @@
   margin: 0 auto;
 }
 
-.research-bar::placeholder {
+.characters-research-bar::placeholder {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 16px;
   color: #ed171ecd;
   font-weight: bold;
 }
 
-.research-bar:focus {
+.characters-research-bar:focus {
   outline: none;
   background-color: none;
-  color: white;
+  color: #393939;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: bold;
 }
 
+/* ---------- */
+/* PAGINATION */
+/* ---------- */
+
+.skip-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.skip-input {
+  border: inherit;
+  border-bottom: 2px solid #39393974;
+  font-family: "Roboto Condensed" sans-serif;
+  font-weight: 800;
+  width: 48px;
+  margin-left: 10px;
+}
+
+/* ---------- */
+/* CHARACTERS SECTION */
+/* ---------- */
 .characters-images-block {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100%;
   max-width: 1280px;
   margin: 0px auto;
@@ -58,13 +92,13 @@
   overflow: hidden;
   position: relative;
   min-height: 100%;
-  /* box-shadow: inset 0 0 0 #ed171e; */
+  box-shadow: inset 0 300px 0 #ed171e;
   transition: 2s;
 }
 
 .characters-images-section:hover {
-  min-height: 100%;
-  box-shadow: inset 0 2000px #ed171e;
+  /* min-height: 100%; */
+  box-shadow: inset 0 600px #ed171e;
   transition: 1.5s;
   cursor: pointer;
 }
