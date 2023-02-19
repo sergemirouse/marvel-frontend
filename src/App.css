@@ -31,3 +31,12 @@ button {
   height: 500px;
   image-rendering: optimizeQuality;
 }
+
+.RIP-favorites {
+  height: 505px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

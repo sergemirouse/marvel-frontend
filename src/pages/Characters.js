@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import "../assets/css/Character.css";
 
 const Characters = () => {
@@ -9,6 +10,7 @@ const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState("");
   const [skip, setSkip] = useState("");
+  const [tab, setTab] = useState([]);
 
   const navigate = useNavigate();
 
@@ -64,25 +66,45 @@ const Characters = () => {
       <div className="characters-images-block">
         {data.results.map((character) => {
           return (
-            <article
-              key={character._id}
-              className="characters-images-section"
-              onClick={() => {
-                navigate(`/comics/${character._id}`);
-              }}
-            >
+            <article key={character._id} className="characters-images-section">
               <div className="characters-images-container">
-                <h2>{character.name}</h2>
-                <img
-                  src={
-                    character.thumbnail.path +
-                    "/standard_fantastic" +
-                    "." +
-                    character.thumbnail.extension
-                  }
-                  alt="character"
-                  className="characters-images"
-                />
+                <h2
+                  onClick={() => {
+                    navigate(`/comics/${character._id}`);
+                  }}
+                >
+                  {character.name}
+                </h2>
+                <div>
+                  <img
+                    src={
+                      character.thumbnail.path +
+                      "/standard_fantastic" +
+                      "." +
+                      character.thumbnail.extension
+                    }
+                    alt="character"
+                    className="characters-images"
+                    onClick={() => {
+                      navigate(`/comics/${character._id}`);
+                    }}
+                  />
+                  <button
+                    className="favorite"
+                    key={character.id}
+                    onClick={() => {
+                      const charaTab = [...tab];
+                      charaTab.push(character._id);
+                      setTab(charaTab);
+
+                      Cookies.set(`faveChar${character._id}`, [charaTab], {
+                        expires: 365,
+                      });
+                    }}
+                  >
+                    <FontAwesomeIcon icon="heart" />
+                  </button>
+                </div>
                 <div className="red"></div>
                 <p className="characters-description">
                   {character.description}

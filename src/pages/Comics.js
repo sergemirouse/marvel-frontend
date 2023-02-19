@@ -2,6 +2,7 @@ import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 import "../assets/css/Comics.css";
 
@@ -10,6 +11,7 @@ const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState("");
   const [skip, setSkip] = useState("");
+  const [tab, setTab] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,6 +68,19 @@ const Comics = () => {
           return (
             <article key={comic._id} className="comics-images-section">
               <h2>{comic.title}</h2>
+              <button
+                className="favorite-comic"
+                onClick={() => {
+                  const comicsTab = [...tab];
+                  comicsTab.push(comic._id);
+                  setTab(comicsTab);
+                  Cookies.set(`faveCom${comic._id}`, [comicsTab], {
+                    expires: 365,
+                  });
+                }}
+              >
+                <FontAwesomeIcon icon="heart" />
+              </button>
               <div className="image-container">
                 <img
                   src={comic.thumbnail.path + "." + comic.thumbnail.extension}
@@ -73,6 +88,7 @@ const Comics = () => {
                   className="comics-images"
                 />
               </div>
+
               <div className="comics-description">{comic.description}</div>
             </article>
           );

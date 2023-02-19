@@ -31,6 +31,12 @@ header {
   cursor: pointer;
 }
 
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
 .signup-login-container {
   display: flex;
   max-width: 100%;
@@ -38,7 +44,8 @@ header {
 
 .signup,
 .login,
-.logout {
+.logout,
+.favorites {
   color: #fff;
   background-color: inherit;
   border: inherit;
@@ -48,13 +55,17 @@ header {
 }
 
 .signup:hover,
-.login:hover {
+.login:hover,
+.logout:hover,
+.favorites:hover {
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
 .signup:active,
-.login:active {
+.login:active,
+.logout:active,
+.favorites:active {
   color: #ed171e;
 }

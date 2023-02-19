@@ -95,9 +95,8 @@
   transform: rotate(1430deg) scale(2);
   box-shadow: #151515;
   border: 1px solid #daa520;
-  border-collapse: collapse;
   z-index: 1;
-  position: relative;
+  /* position: relative; */
   max-width: 200px;
 }
 
@@ -123,4 +122,12 @@
   box-shadow: inset 382px 0 #ed171e;
   transition: 1.5s;
   color: #fff;
+}
+
+.favorite-comic {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #e6dbdb;
 }

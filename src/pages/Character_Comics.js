@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import "../assets/css/Character_Comics.css";
 
 const CharacterComics = () => {
   const [characterComics, setCharacterComics] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  //   const navigate = useNavigate();
 
   const { characterId } = useParams();
 
@@ -34,25 +32,23 @@ const CharacterComics = () => {
     <p>Loading ...</p>
   ) : (
     <div>
-      <p>{characterComics.name}</p>
-      {characterComics.comics.map((detail, index) => {
-        const key = Object.keys(detail)[2];
-        console.log(key);
-        return (
-          <div key={index}>
-            <p>{detail[key]}</p>
-            <img
-              src={
-                detail.thumbnail.path +
-                "/portrait_fantastic" +
-                "." +
-                detail.thumbnail.extension
-              }
-              alt="character-comic"
-            />
-          </div>
-        );
-      })}
+      <h2>{characterComics.name}</h2>
+      <div className="character-comics-section">
+        {characterComics.comics.map((detail, _id) => {
+          const key = Object.keys(detail)[2];
+          console.log(key);
+          return (
+            <div key={_id} className="comic-container">
+              <p className="comic-name">{detail[key]}</p>
+              <img
+                src={detail.thumbnail.path + "." + detail.thumbnail.extension}
+                alt="character-comic"
+                className="comic-image"
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
