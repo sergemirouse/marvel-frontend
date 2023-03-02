@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import "../assets/css/Character.css";
+import "./style.css";
 
 const Characters = () => {
   const [data, setData] = useState();
@@ -20,7 +20,6 @@ const Characters = () => {
         const response = await axios.get(
           `https://site--marvel-backend--9v668jgjwvk4.code.run/characters?apiKey&name=${name}&skip=${skip}`
         );
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -105,10 +104,13 @@ const Characters = () => {
                     <FontAwesomeIcon icon="heart" />
                   </button>
                 </div>
-                <div className="red"></div>
-                <p className="characters-description">
-                  {character.description}
-                </p>
+                {character.description !== "" && (
+                  <div className="characters-description-container">
+                    <p className="characters-description">
+                      {character.description}
+                    </p>
+                  </div>
+                )}
               </div>
             </article>
           );

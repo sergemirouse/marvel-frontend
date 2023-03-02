@@ -1,10 +1,9 @@
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
-import "../assets/css/Comics.css";
+import "./style.css";
 
 const Comics = () => {
   const [data, setData] = useState();
@@ -19,7 +18,6 @@ const Comics = () => {
         const response = await axios.get(
           `https://site--marvel-backend--9v668jgjwvk4.code.run/comics?apiKey=&title=${title}&skip=${skip}`
         );
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -88,8 +86,9 @@ const Comics = () => {
                   className="comics-images"
                 />
               </div>
-
-              <div className="comics-description">{comic.description}</div>
+              {comic.description !== null && (
+                <div className="comics-description">{comic.description}</div>
+              )}
             </article>
           );
         })}

@@ -1,11 +1,11 @@
-import "../assets/css/Footer.css";
+import "./style.css";
 
 const Footer = () => {
   return (
     <section className="footer-section">
       <div className="footer">
         <span>Made with </span> &nbsp;
-        <span className="react">React </span>
+        <span className="react">React </span> &nbsp;
         <span>at </span> &nbsp;
         <a href="https://www.lereacteur.io/" target="blank">
           Le Reacteur

@@ -1,12 +1,7 @@
 header {
-  width: 100%;
+  max-width: 100%;
   height: 72px;
-  background-color: rgba(32, 32, 32, 32);
-}
-
-.first-header {
-  height: 72px;
-  width: 100%;
+  background-color: #151515;
 }
 
 .first-division {
@@ -21,7 +16,6 @@ header {
   align-items: center;
   justify-content: space-between;
   max-width: 1280px;
-  width: 100%;
   height: 70px;
   margin: 0 auto;
 }
@@ -61,6 +55,7 @@ header {
   -ms-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .signup:active,

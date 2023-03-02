@@ -27,11 +27,6 @@ button {
   font-size: inherit;
 }
 
-.home-bcg {
-  height: 500px;
-  image-rendering: optimizeQuality;
-}
-
 .RIP-favorites {
   height: 505px;
   max-width: 100%;

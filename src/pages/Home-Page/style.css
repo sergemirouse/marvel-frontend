@@ -1,0 +1,9 @@
+.home-bcg {
+  height: 507px;
+  object-fit: contain;
+  image-rendering: optimizeQuality;
+  width: 100%;
+  object-fit: cover;
+  scale: 1.5;
+  overflow: hidden;
+}

@@ -4,7 +4,7 @@ import okay from "../assets/img/15Wr.gif";
 const Favorites = ({ token }) => {
   return token ? (
     <div className="RIP-favorites">
-      <h1>Ci-gissent les favoris</h1>
+      <h1>Here lie favorites</h1>
       <img src={okay} alt="okay" />
     </div>
   ) : (

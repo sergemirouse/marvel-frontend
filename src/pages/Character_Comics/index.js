@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "../assets/css/Character_Comics.css";
+import "./style.css";
 
 const CharacterComics = () => {
   const [characterComics, setCharacterComics] = useState();
@@ -21,7 +21,6 @@ const CharacterComics = () => {
         setIsLoading(false);
         console.log(response.data);
       } catch (error) {
-        console.log(error.message);
         console.log(error.response);
       }
     };

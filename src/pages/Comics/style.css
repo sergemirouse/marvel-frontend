@@ -80,9 +80,7 @@
 
 .comics-images {
   max-height: 300px;
-
   object-fit: cover;
-  /* border-bottom: 5px solid #ed171e; */
   object-fit: contain;
 }
 

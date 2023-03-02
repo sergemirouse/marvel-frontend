@@ -6,16 +6,16 @@ import { faMagnifyingGlass, faHeart } from "@fortawesome/free-solid-svg-icons";
 import Cookies from "js-cookie";
 
 import "./App.css";
-import Header from "./components/Header";
-import Menu from "./components/Menu";
-import Home from "./pages/Home";
-import Characters from "./pages/Characters";
-import Comics from "./pages/Comics";
-import CharacterComics from "./pages/Character_Comics";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Header from "./components/Header/index";
+import Menu from "./components/Menu/index";
+import Home from "./pages/Home-Page/index";
+import Characters from "./pages/Characters/index";
+import Comics from "./pages/Comics/index";
+import CharacterComics from "./pages/Character_Comics/index";
+import Signup from "./pages/Signup/index";
+import Login from "./pages/Login/index";
 import Favorite from "./pages/Favorites";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/index";
 
 library.add(faMagnifyingGlass, faHeart);
 
