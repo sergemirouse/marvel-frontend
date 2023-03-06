@@ -3,8 +3,8 @@ import okay from "../assets/img/15Wr.gif";
 
 const Favorites = ({ token }) => {
   return token ? (
-    <div className="RIP-favorites">
-      <h1>Here lie favorites</h1>
+    <div className="rip-favorites">
+      <h1 className="catchphrase">Here lie favorites</h1>
       <img src={okay} alt="okay" />
     </div>
   ) : (

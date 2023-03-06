@@ -6,53 +6,51 @@ const Header = ({ token, handleToken }) => {
   const navigate = useNavigate();
   return (
     <header>
-      <div className="first-division">
-        <div className="header-container">
-          <div>
-            <img
-              src={logo}
-              alt="logo-marvel"
-              className="logo-marvel"
+      <div className="header-container">
+        <div>
+          <img
+            src={logo}
+            alt="logo-marvel"
+            className="logo-marvel"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
+        </div>
+        <div className="buttons-container">
+          <Link to="/user/favorites">
+            <button className="favorites">FAVORITES</button>
+          </Link>
+          {token ? (
+            <button
+              className="logout"
               onClick={() => {
-                navigate("/");
+                handleToken(null); //au clic sur LOGOUT, le cookie est supprimé du navigateur, l'utilisateur est donc déconnecté
               }}
-            />
-          </div>
-          <div className="buttons-container">
-            <Link to="/user/favorites">
-              <button className="favorites">FAVORITES</button>
-            </Link>
-            {token ? (
+            >
+              LOGOUT
+            </button>
+          ) : (
+            <div className="signup-login-container">
               <button
-                className="logout"
+                className="signup"
                 onClick={() => {
-                  handleToken(null); //au clic sur LOGOUT, le cookie est supprimé du navigateur, l'utilisateur est donc déconnecté
+                  navigate("/user/signup");
                 }}
               >
-                LOGOUT
+                SIGN UP
               </button>
-            ) : (
-              <div className="signup-login-container">
-                <button
-                  className="signup"
-                  onClick={() => {
-                    navigate("/user/signup");
-                  }}
-                >
-                  SIGN UP
-                </button>
-                <span style={{ color: "#fff" }}>|</span>
-                <button
-                  className="login"
-                  onClick={() => {
-                    navigate("/user/login");
-                  }}
-                >
-                  LOGIN
-                </button>
-              </div>
-            )}
-          </div>
+              <span style={{ color: "#fff" }}>|</span>
+              <button
+                className="login"
+                onClick={() => {
+                  navigate("/user/login");
+                }}
+              >
+                LOGIN
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

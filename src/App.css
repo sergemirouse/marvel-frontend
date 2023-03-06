@@ -8,9 +8,11 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   width: 100%;
   height: 100%;
-  background-image: url("./assets/img/background.jpg");
+  background-image: url("./assets/img/background-image.jpg");
+  backdrop-filter: blur(3px);
   background-repeat: no-repeat;
-  object-fit: cover;
+  background-attachment: fixed;
+  background-position: center top;
   display: flex;
   flex-direction: column;
 }
@@ -29,11 +31,18 @@ button {
   font-size: inherit;
 }
 
-.RIP-favorites {
-  height: 505px;
+.rip-favorites {
+  height: 508px;
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: white;
+}
+
+.catchphrase {
+  background-color: black;
+  width: 350px;
+  text-align: center;
 }

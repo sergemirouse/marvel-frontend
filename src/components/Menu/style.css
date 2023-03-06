@@ -38,7 +38,7 @@
 
 .first-menu:hover {
   border-right: 3px solid #ed171e;
-  border-bottom: 4px solid #ed171e;
+  border-bottom: 6px solid #ed171e;
 }
 
 .first-menu:active,
@@ -56,5 +56,5 @@
 
 .second-menu:hover {
   border-left: 3px solid #ed171e;
-  border-bottom: 4px solid #ed171e;
+  border-bottom: 6px solid #ed171e;
 }

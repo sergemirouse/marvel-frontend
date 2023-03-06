@@ -3,7 +3,7 @@
   margin-top: auto;
   width: 100%;
   bottom: 0;
-  background-color: #32323219;
+  background-color: #32323295;
   border-top: 2px solid #fff;
 }
 
@@ -13,7 +13,7 @@
   word-spacing: 1px;
   letter-spacing: 0.5px;
   display: flex;
-  color: #323232;
+  color: white;
   justify-content: center;
   align-items: center;
   text-align: center;

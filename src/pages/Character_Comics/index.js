@@ -32,21 +32,23 @@ const CharacterComics = () => {
   ) : (
     <div>
       <h2>{characterComics.name}</h2>
-      <div className="character-comics-section">
-        {characterComics.comics.map((detail, _id) => {
-          const key = Object.keys(detail)[2];
-          console.log(key);
-          return (
-            <div key={_id} className="comic-container">
-              <p className="comic-name">{detail[key]}</p>
-              <img
-                src={detail.thumbnail.path + "." + detail.thumbnail.extension}
-                alt="character-comic"
-                className="comic-image"
-              />
-            </div>
-          );
-        })}
+      <div className="character-comics-page">
+        <div className="character-comics-section">
+          {characterComics.comics.map((detail, _id) => {
+            const key = Object.keys(detail)[2];
+            console.log(key);
+            return (
+              <div key={_id} className="comic-container">
+                <p className="comic-name">{detail[key]}</p>
+                <img
+                  src={detail.thumbnail.path + "." + detail.thumbnail.extension}
+                  alt="character-comic"
+                  className="comic-image"
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

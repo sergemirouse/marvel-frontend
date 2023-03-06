@@ -32,7 +32,7 @@ const Characters = () => {
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    <div>
+    <div className="characters-page">
       <div className="characters-research-section">
         <div className="characters-research-container">
           <FontAwesomeIcon

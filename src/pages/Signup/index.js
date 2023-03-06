@@ -95,7 +95,7 @@ const Signup = ({ handleToken }) => {
           <p style={{ color: "red", marginTop: "10px" }}>{errorMessage}</p>
         )}
         <div className="signup-button">
-          <Link to="/user/login" className="login-way-phrase" style={{}}>
+          <Link to="/user/login" className="login-way-phrase">
             Already have an account, connect here!
           </Link>
         </div>
