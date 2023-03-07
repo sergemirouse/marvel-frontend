@@ -1,9 +1,32 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cookies from "js-cookie";
 
 const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
   const navigate = useNavigate();
+
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const fetchData = () => {
+      setIsFavorite(true);
+    };
+    fetchData();
+  }, []);
+
+  const handleFavorites = (character) => {
+    const newCharacterCookie = [...characterCookie];
+
+    const presentFavorite = (elem) => elem.id === character._id;
+
+    if (!presentFavorite) {
+      newCharacterCookie.push({ ...character });
+    } else if (presentFavorite) {
+      const index = newCharacterCookie.indexOf(presentFavorite);
+      newCharacterCookie.splice(index, 1);
+    }
+  };
 
   return (
     <article key={character._id} className="characters-images-section">
@@ -33,7 +56,7 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
               const charaTab = [...characterCookie];
               charaTab.push(character._id);
               setCharacterCookie(charaTab);
-
+              handleFavorites(character._id);
               Cookies.set(`faveCharCookie`, JSON.stringify(charaTab), {
                 expires: 365,
               });
