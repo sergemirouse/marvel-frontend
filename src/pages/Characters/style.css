@@ -91,7 +91,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   height: 100%;
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0px auto;
   gap: 30px;
 }
@@ -115,6 +115,13 @@
   border-top: 25px solid #393939;
   border-left: 25px solid white;
   box-shadow: -5px -5px 20px #393939;
+}
+
+.character-name {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .characters-images {
@@ -163,10 +170,30 @@
 
 .favorite {
   position: absolute;
-  top: 50px;
-  right: 30px;
-  height: 40px;
-  width: 40px;
+  top: 10px;
+  left: 10px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   background-color: #e6dbdb;
+}
+
+.in-favorites {
+  color: #ed171e;
+}
+
+.out-of-favorites {
+  color: black;
+}
+
+@media (max-width: 820px) {
+  .characters-images-section {
+    min-width: 300px;
+  }
+
+  .favorite {
+    position: absolute;
+    top: 270px;
+    right: 10px;
+  }
 }

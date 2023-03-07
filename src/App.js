@@ -1,7 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faHeart,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
 
 import Cookies from "js-cookie";
 
@@ -17,7 +21,7 @@ import Login from "./pages/Login/index";
 import Favorite from "./pages/Favorites";
 import Footer from "./components/Footer/index";
 
-library.add(faMagnifyingGlass, faHeart);
+library.add(faMagnifyingGlass, faHeart, faRightFromBracket);
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token-marvel") || null);

@@ -67,18 +67,18 @@ const Characters = () => {
           return (
             <article key={character._id} className="characters-images-section">
               <div className="characters-images-container">
-                <h2
-                  onClick={() => {
-                    navigate(`/comics/${character._id}`);
-                  }}
-                >
-                  {character.name}
-                </h2>
                 <div>
+                  <h2
+                    onClick={() => {
+                      navigate(`/comics/${character._id}`);
+                    }}
+                    className="character-name"
+                  >
+                    {character.name}
+                  </h2>
                   <img
                     src={
                       character.thumbnail.path +
-                      "/standard_fantastic" +
                       "." +
                       character.thumbnail.extension
                     }
@@ -88,6 +88,7 @@ const Characters = () => {
                       navigate(`/comics/${character._id}`);
                     }}
                   />
+
                   <button
                     className="favorite"
                     key={character.id}
@@ -101,7 +102,14 @@ const Characters = () => {
                       });
                     }}
                   >
-                    <FontAwesomeIcon icon="heart" />
+                    {`faveChar${character._id}` ? (
+                      <FontAwesomeIcon icon="heart" className="in-favorites" />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon="heart"
+                        className="out-of-favorites"
+                      />
+                    )}
                   </button>
                 </div>
                 {character.description !== "" && (
