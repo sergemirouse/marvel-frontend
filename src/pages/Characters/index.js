@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+import CharacterCard from "../../components/CharacterCard";
+
 import "./style.css";
 
 const Characters = () => {
@@ -10,9 +11,7 @@ const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState("");
   const [skip, setSkip] = useState("");
-  const [tab, setTab] = useState([]);
-
-  const navigate = useNavigate();
+  const [characterCookie, setCharacterCookie] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,62 +64,12 @@ const Characters = () => {
       <div className="characters-images-block">
         {data.results.map((character) => {
           return (
-            <article key={character._id} className="characters-images-section">
-              <div className="characters-images-container">
-                <div>
-                  <h2
-                    onClick={() => {
-                      navigate(`/comics/${character._id}`);
-                    }}
-                    className="character-name"
-                  >
-                    {character.name}
-                  </h2>
-                  <img
-                    src={
-                      character.thumbnail.path +
-                      "." +
-                      character.thumbnail.extension
-                    }
-                    alt="character"
-                    className="characters-images"
-                    onClick={() => {
-                      navigate(`/comics/${character._id}`);
-                    }}
-                  />
-
-                  <button
-                    className="favorite"
-                    key={character.id}
-                    onClick={() => {
-                      const charaTab = [...tab];
-                      charaTab.push(character._id);
-                      setTab(charaTab);
-
-                      Cookies.set(`faveChar${character._id}`, [charaTab], {
-                        expires: 365,
-                      });
-                    }}
-                  >
-                    {`faveChar${character._id}` ? (
-                      <FontAwesomeIcon icon="heart" className="in-favorites" />
-                    ) : (
-                      <FontAwesomeIcon
-                        icon="heart"
-                        className="out-of-favorites"
-                      />
-                    )}
-                  </button>
-                </div>
-                {character.description !== "" && (
-                  <div className="characters-description-container">
-                    <p className="characters-description">
-                      {character.description}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </article>
+            <CharacterCard
+              character={character}
+              characterCookie={characterCookie}
+              setCharacterCookie={setCharacterCookie}
+              key={character._id}
+            />
           );
         })}
       </div>
