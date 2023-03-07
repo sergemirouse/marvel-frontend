@@ -190,10 +190,4 @@
   .characters-images-section {
     min-width: 300px;
   }
-
-  .favorite {
-    position: absolute;
-    top: 270px;
-    right: 10px;
-  }
 }

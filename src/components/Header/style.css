@@ -30,6 +30,13 @@ header {
   max-width: 100%;
 }
 
+.signup-icon,
+.login-icon,
+.logout-icon,
+.favorites-icon {
+  display: none;
+}
+
 .signup,
 .login,
 .logout,
@@ -58,3 +65,38 @@ header {
 .favorites:active {
   color: #ed171e;
 }
+
+@media (max-width: 820px) {
+  .header-container {
+    max-width: 90%;
+  }
+
+  header span {
+    display: none;
+  }
+
+  .signup-login-container {
+    display: flex;
+    justify-content: space-between;
+    width: 50px;
+    margin-left: 30px;
+  }
+
+  .logout,
+  .signup,
+  .login,
+  .favorites {
+    display: none;
+  }
+
+  .signup-icon,
+  .login-icon,
+  .logout-icon,
+  .favorites-icon {
+    display: flex;
+    color: #fff;
+    background-color: inherit;
+    border: inherit;
+    cursor: pointer;
+  }
+} ;

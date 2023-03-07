@@ -15,19 +15,6 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
     fetchData();
   }, []);
 
-  const handleFavorites = (character) => {
-    const newCharacterCookie = [...characterCookie];
-
-    const presentFavorite = (elem) => elem.id === character._id;
-
-    if (!presentFavorite) {
-      newCharacterCookie.push({ ...character });
-    } else if (presentFavorite) {
-      const index = newCharacterCookie.indexOf(presentFavorite);
-      newCharacterCookie.splice(index, 1);
-    }
-  };
-
   return (
     <article key={character._id} className="characters-images-section">
       <div className="characters-images-container">
@@ -54,9 +41,19 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
             key={character.id}
             onClick={() => {
               const charaTab = [...characterCookie];
-              charaTab.push(character._id);
+              //   au clic, si l'id d'un perso existe dans le tableau de Cookies, on le supprime
+              if (character._id) {
+                const index = charaTab.indexOf(character._id);
+                charaTab.splice(index, 1);
+                setIsFavorite(true);
+                return isFavorite;
+                // sinon, s'il n'existe pas, on rajoute l'id du perso
+              } else if (!character._id) {
+                charaTab.push(character._id);
+                setIsFavorite(false);
+                return isFavorite;
+              }
               setCharacterCookie(charaTab);
-              handleFavorites(character._id);
               Cookies.set(`faveCharCookie`, JSON.stringify(charaTab), {
                 expires: 365,
               });

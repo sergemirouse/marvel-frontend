@@ -5,6 +5,8 @@ import {
   faMagnifyingGlass,
   faHeart,
   faRightFromBracket,
+  faUserPlus,
+  faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Cookies from "js-cookie";
@@ -21,7 +23,13 @@ import Login from "./pages/Login/index";
 import Favorite from "./pages/Favorites";
 import Footer from "./components/Footer/index";
 
-library.add(faMagnifyingGlass, faHeart, faRightFromBracket);
+library.add(
+  faMagnifyingGlass,
+  faHeart,
+  faRightFromBracket,
+  faUserPlus,
+  faArrowRightToBracket
+);
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token-marvel") || null);
