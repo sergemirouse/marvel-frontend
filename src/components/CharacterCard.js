@@ -9,11 +9,16 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const fetchData = () => {
+    // index de character._id --> characterCookie alors index est différent de -1
+    const index = characterCookie.indexOf(character._id);
+    // si index est différent de -1 alors setIsFavorite est true puisque character._id existe
+    if (index !== -1) {
       setIsFavorite(true);
-    };
-    fetchData();
-  }, []);
+      // sinon, index === -1 donc setIsFavorite est false puisque character._id n'existe pas
+    } else {
+      setIsFavorite(false);
+    }
+  }, [characterCookie, character._id]);
 
   return (
     <article key={character._id} className="characters-images-section">
@@ -41,17 +46,14 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
             key={character.id}
             onClick={() => {
               const charaTab = [...characterCookie];
+              console.log(charaTab);
+              const index = charaTab.indexOf(character._id);
               //   au clic, si l'id d'un perso existe dans le tableau de Cookies, on le supprime
-              if (character._id) {
-                const index = charaTab.indexOf(character._id);
+              if (index !== -1) {
                 charaTab.splice(index, 1);
-                setIsFavorite(true);
-                return isFavorite;
                 // sinon, s'il n'existe pas, on rajoute l'id du perso
-              } else if (!character._id) {
+              } else {
                 charaTab.push(character._id);
-                setIsFavorite(false);
-                return isFavorite;
               }
               setCharacterCookie(charaTab);
               Cookies.set(`faveCharCookie`, JSON.stringify(charaTab), {
@@ -59,7 +61,7 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
               });
             }}
           >
-            <FontAwesomeIcon icon="heart" className="in-favorites" />
+            <FontAwesomeIcon icon="heart" /*className="in-favorites"*/ />
           </button>
         </div>
         {character.description !== "" && (

@@ -99,4 +99,21 @@ header {
     border: inherit;
     cursor: pointer;
   }
+
+  .signup-icon:hover,
+  .login-icon:hover,
+  .logout-icon:hover,
+  .favorites-icon:hover {
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+
+  .signup-icon:active,
+  .login-icon:active,
+  .logout-icon:active,
+  .favorites-icon:active {
+    color: #ed171e;
+  }
 } ;
