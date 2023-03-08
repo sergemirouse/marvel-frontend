@@ -56,9 +56,13 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
                 charaTab.push(character._id);
               }
               setCharacterCookie(charaTab);
-              Cookies.set(`faveCharCookie`, JSON.stringify(charaTab), {
+
+              Cookies.set("faveCharCookie", JSON.stringify(charaTab), {
                 expires: 365,
               });
+              if (charaTab.length === 0) {
+                Cookies.remove("faveCharCookie");
+              }
             }}
           >
             <FontAwesomeIcon icon="heart" /*className="in-favorites"*/ />

@@ -9,8 +9,6 @@ const CharacterComics = () => {
 
   const { characterId } = useParams();
 
-  console.log({ characterId });
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,7 +17,6 @@ const CharacterComics = () => {
         );
         setCharacterComics(response.data);
         setIsLoading(false);
-        console.log(response.data);
       } catch (error) {
         console.log(error.response);
       }
@@ -36,7 +33,6 @@ const CharacterComics = () => {
         <div className="character-comics-section">
           {characterComics.comics.map((detail, _id) => {
             const key = Object.keys(detail)[2];
-            console.log(key);
             return (
               <div key={_id} className="comic-container">
                 <p className="comic-name">{detail[key]}</p>
