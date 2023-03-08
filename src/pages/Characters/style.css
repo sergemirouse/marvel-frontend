@@ -176,6 +176,7 @@
   width: 30px;
   border-radius: 50%;
   background-color: #e6dbdb;
+  cursor: pointer;
 }
 
 .in-favorites {

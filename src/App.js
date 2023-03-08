@@ -33,6 +33,11 @@ library.add(
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token-marvel") || null);
+  const [characterCookie, setCharacterCookie] = useState(
+    Cookies.get("faveCharCookie")
+      ? JSON.parse(Cookies.get("faveCharCookie"))
+      : []
+  );
 
   const handleToken = (token) => {
     if (token) {
@@ -50,7 +55,15 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/characters" element={<Characters />} />
+        <Route
+          path="/characters"
+          element={
+            <Characters
+              characterCookie={characterCookie}
+              setCharacterCookie={setCharacterCookie}
+            />
+          }
+        />
         <Route path="/comics/:characterId" element={<CharacterComics />} />
         <Route path="/comics" element={<Comics />} />
         <Route
@@ -61,7 +74,16 @@ function App() {
           path="/user/login"
           element={<Login handleToken={handleToken} />}
         />
-        <Route path="/user/favorites" element={<Favorite token={token} />} />
+        <Route
+          path="/user/favorites"
+          element={
+            <Favorite
+              token={token}
+              characterCookie={characterCookie}
+              setCharacterCookie={setCharacterCookie}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </Router>

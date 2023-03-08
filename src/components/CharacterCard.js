@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cookies from "js-cookie";
 
 const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
-  const navigate = useNavigate();
-
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // index de character._id --> characterCookie alors index est différent de -1
@@ -65,7 +65,11 @@ const CharacterCard = ({ character, characterCookie, setCharacterCookie }) => {
               }
             }}
           >
-            <FontAwesomeIcon icon="heart" /*className="in-favorites"*/ />
+            {isFavorite ? (
+              <FontAwesomeIcon icon="heart" className="in-favorites" />
+            ) : (
+              <FontAwesomeIcon icon="heart" className="out-of-favorites" />
+            )}
           </button>
         </div>
         {character.description !== "" && (
