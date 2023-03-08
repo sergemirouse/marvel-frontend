@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import CharacterCard from "../../components/CharacterCard";
 
 import "./style.css";
+import Cookies from "js-cookie";
 
 const Characters = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [name, setName] = useState("");
   const [skip, setSkip] = useState("");
-  const [characterCookie, setCharacterCookie] = useState([]);
+  const [characterCookie, setCharacterCookie] = useState(
+    Cookies.get("faveCharCookie") || []
+  );
 
   useEffect(() => {
     const fetchData = async () => {
