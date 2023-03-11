@@ -10,7 +10,7 @@ const Favorites = ({ token, characterCookie, setCharacterCookie }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.post(
           `https://site--marvel-backend--9v668jgjwvk4.code.run/user/favorites`
         );
         setData(response.data);
@@ -27,21 +27,17 @@ const Favorites = ({ token, characterCookie, setCharacterCookie }) => {
       <p>Loading ...</p>
     ) : (
       <div className="characters-images-block">
-        {characterCookie.map((faveCharacter) => {
-          return data.results.map((character) => {
-            return (
-              <div>
-                {faveCharacter === character._id && (
-                  <CharacterCard
-                    characterCookie={characterCookie}
-                    setCharacterCookie={setCharacterCookie}
-                    character={character}
-                    key={character._id}
-                  />
-                )}
-              </div>
-            );
-          });
+        {data.characterCookie.map((faveCharacter) => {
+          return (
+            <div>
+              {faveCharacter && (
+                <CharacterCard
+                  characterCookie={characterCookie}
+                  setCharacterCookie={setCharacterCookie}
+                />
+              )}
+            </div>
+          );
         })}
       </div>
     )
